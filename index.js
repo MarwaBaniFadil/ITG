@@ -1,33 +1,32 @@
+document.getElementById("login_btn").addEventListener("click",function(){
 
-$("button").on("click", function(){
-    
 let username = document.getElementById("username").value;
 let password = document.getElementById("pass").value;
-
 if ((username || password) == ""){
-    $("#result").css("color","red").text("Please fill all fields !!")
+  let result = document.getElementById("result");
+  result.style.color = "red";
+  result.textContent = "Please fill all fields !!";
 }
 else if (username == "admin" && password == "12345"){
-    $("#result").css("color","green").text("Login Successful")
+    result.style.color = "green";
+  result.textContent = "Login Successful";
     window.location.href = "home.html";
 }
-
 else {
-    $("#result").css("color","red").text("Invalid Credentials")
-
+ result.style.color = "red";
+  result.textContent = "Invalid Credentials";
 }
-
-$("input").val("")
-
+document.getElementsByTagName("input").value = "";
 })
 
-   $("#show_chBox").on("click",function(){
-    if ($("#show_chBox").prop("checked")){
-     $("#pass").attr("type","text")
-    }
-    else {
-        $("#pass").attr("type","password") 
-    }
-  
-   }) 
-   
+let ch_box = document.getElementById("show_chBox");
+ch_box.addEventListener("click",function(){
+if (ch_box.checked){
+let pass  = document.getElementById("pass");
+pass.setAttribute("type","text");
+}
+else{
+    pass.setAttribute("type","password");
+}
+
+})
